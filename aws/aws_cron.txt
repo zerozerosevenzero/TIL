@@ -36,5 +36,56 @@ crontab crontab_new
 rm crontab_new
 
 2. cron을 이용해서 종료된 스프링 서버를 재시작(자동으로)
+mkdir cron-restart
+cd cron-restart
+================================
+vi spring-stop.sh
+echo "SPRINGBOOT STOP...."
+SPRING_PID=$(pgrep -f v1-0.0.1-SNAPSHOT.jar)
+kill -9 $SPRING_PID
+저장
+================================
+chmod u+x spring-stop.sh
+./spring-stop.sh
 
+===================================
+vi spring-restart.sh
+SPRING_PID=$(pgrep -f v1-0.0.1-SNAPSHOT.jar)
+SPRING_PATH="/home/ubuntu/aws-v1/build/libs/v1-0.0.1-SNAPSHOT.jar"
 
+echo $SPRING_PID
+echo $SPRING_PATH
+
+if [ -z "$SPRING_PID" ]; then 
+  echo "스프링 종료된 상태...."
+  echo "스프링 재시작 - $(date)" 1>>/home/ubuntu/cron-restart/spring-restart.log
+  nohup java -jar $SPRING_PATH 1>log.out 2>err.out &
+else
+  echo "스프링 시작된 상태...."
+fi
+===================================
+chmod u+x spring-restart.sh
+if [ -z "$SPRING_PID"]; then  뜻: SPRING_PID가 꺼졌다면
+nohup java -jar /home/ubuntu/aws-v1/build/libs/v1-0.0.1-SNAPSHOT.jar 1>log.out 2>err.out &
+
+=================================================================
+vi deploy.sh
+#1. 배포 프로세스
+echo "deploy start...기존 서버가 시작되어 있다면 종료를 하고 배포를 시작해야함"
+echo "1. JDK install"
+echo "2. github project download"
+echo "3. gralew 실행권한주기"
+echo "4. project build하기"
+echo "5. ubuntu timezone setting 하기"
+echo "6. nohub으로 springboot 실행시키기"
+
+#2. 스프링 서버 종료 시 재시작
+echo "crontab 등록 - spring restart..."
+crontab -l > crontab_new
+echo "* * * * * /home/ubuntu/cron-restart/spring-restart.sh" 1>>crontab_new
+crontab crontab_new
+rm crontab_new
+============================================================
+./deploy.sh
+crontab -e
+ 
