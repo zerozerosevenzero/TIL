@@ -1,0 +1,83 @@
+고정 IP (엘라스틱 IP) = 탄력적 ip
+3.37.110.59 -> 새로생긴 인스턴스에 ip주소 할당
+
+
+gradle -> jar(실행파일로 변경하기)
+gradlew(실행파일)
+
+1. github다운받기
+  - git clone ${주소}
+2. java설치(JDK, JRE)
+  - sudo apt update
+  - sudo apt 
+  - sudo apt-cache search jdk (메뉴판보기)
+  - sudo apt-cache search jdk | grep openjdk-11  
+  - sudo apt install openjdk-11-jdk
+3. gradlew 실행권한주기
+  - cd ~/aws-v1 (프로젝트로 들어가서)
+  - chmod u+x gradlew
+ 
+4. gradlew로 프로젝트를 jar파일로 변경하기
+  - ./gradlew build   -> gradle build
+  - build폴더 생성됨
+  - cd build/libs 안에 jar파일 생성
+  
+5. java로 jar를 실행
+  - java -jar v1-0.0.1-SNAPSHOT.jar 서버 실행
+  - java -jar *.jar 도됨
+=============================
+28강 nohub
+nohup java -jar *.jar & //백그라운드로 실행
+nohup 명령어는 리눅스에서 프로세스를 실행한 터미널의 세션 연결이 끊어지더라도 지속적으로 동작할 수 있게 해주는 명령어입니다.
+sudo apt install nohup
+&: background로 실행
+
+netstat -nlpt //현재 프로세스 확인
+sudo apt install net-tools
+
+cat nohup.out // nohup 로그 확인
+tail -f nohup.out // nohup로그 실시간확인
+ps -ef //프로세스id확인하기
+kill -9 프로세스id 
+
+nohup java -jar *.jar > mylog.out & //mylog.out에 로그저장
+tail -f mylog.out 
+
+파일삭제 rm
+=====================================
+nohup java -jar v1-0.0.1-SNAPSHOT.jar 1>log.out 2>err.out &
+                                                     1.표준출력   2.에러출력
+이유: 배포를 위해서 작성했던 모든 명령어들 - 스크립트 작성!! -자동화
+
+cat err.out
+
+7.시간변경
+timedatectl
+timedatectl list-timezones
+timedatectl list-timezones | grep Seoul //대소문자가림
+sudo timedatectl set-timezone Asia/Seoul
+
+echo //표준출력모니터로 글자를 출력하라
+ps -ef | grep *.jar | grep -v grep | awk '{print $2}' //프로세스 전체출력하는데 jar파일과 2번째 인자를 가져와보여줘
+pgrep -f *.jar //프로세스grep 전용
+
+================================================
+삭제 자동화 만들기
+//위치: build/libs
+vi spring-stop.sh
+===========================
+echo "Springboot stop....."
+
+SPRING_PID=$(pgrep -f *.jar)
+
+echo $SPRING_PID
+
+kill -9 $SPRING_PID
+===========================
+chmod u+x spring-stop.sh //실행권한주기
+./spring-stop.sh // 현재폴더에 spring-stop.sh를 실행하자
+
+$변수 -> 변수의값을 출력 혹은 실행
+$(명령어) -> 명령어의 결과를 리턴
+=========================================
+

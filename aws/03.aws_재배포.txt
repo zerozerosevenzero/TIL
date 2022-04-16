@@ -1,0 +1,38 @@
+하나의 배포 스크립트를 만들어두면 좋음( 최초: 최초 배포프로세스, 두번째이상: 재배포 프로세스)
+================================
+deploy.sh(배포)
+redeploy.sh
+재배포스크립트 작성
+======================================
+aws_재배포
+1. 기존서버를 중지 시켜야함
+echo "SPRINGBOOT STOP...."
+SPRING_PID=$(pgrep -f v1-0.0.1-SNAPSHOT.jar)
+kill -9 $SPRING_PID
+
+2. aws-v1폴더를 통째로 삭제
+  rm -r /home/ubuntu/aws-v1
+
+3. git clone다운
+  git clone 주소
+
+4. gradlew 실행권한주기
+ cd /home/ubuntu/aws-v1
+ chmod u+x gradlew
+
+5. 빌드하기
+ ./gradlew build
+
+6. jar를 실행
+ cd  /home/ubuntu/aws-v1/build/libs
+ nohup java -jar /home/ubuntu/aws-v1/build/libs/v1-0.0.1-SNAPSHOT.jar 1>log.out 2>err.out &
+nohup java -jar v1-0.0.1-SNAPSHOT.jar 1>log.out 2>err.out &
+
+7. cron으로 자동 재시작
+deploy.sh
+==============================
+echo "cron apply"
+crontab -l > crontab_new
+echo "* * * * * /home/ubuntu/cron-restart/spring-restart.sh" 1>>crontab_new
+crontab crontab_new
+rm crontab_new
