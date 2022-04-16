@@ -1,0 +1,18 @@
+aws-ec2
+Amazon Linux 2 AMI (HVM), SSD VOLUME
+
+mac
+sudo su                      #super user로 만들기
+yum update -y             #운영체제 업데이트 관련 패키지 설치
+yum install httpd -y       # apache install
+service httpd start         # apache 실행
+chkconfig httpd on        # 인스턴스 재실행시 apache자동으로 키기
+cd /var/www/html          # 홈페이지 만들기
+vi index.html                # 새로운 html파일 만들기
+
+<html>
+<body>
+  <h1>hello JS</h1>
+</body>
+</html>
+
