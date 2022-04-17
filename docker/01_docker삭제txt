@@ -1,0 +1,28 @@
+#ec2 9999포트에 파일 index.html배포하기
+docker run -d -p 9999:80 -v /home/ubuntu/2021_DEV_HTML:/usr/local/apache2/htdocs --name apacheweb2 httpd
+
+#docker가 사용하고 있는 저장매체 현황 확인하기
+docker system df 
+
+#도커 이미지 삭제하기
+
+#모든 컨테이너 중지
+docker stop $(docker ps -a -q) 
+
+#모든 컨테이너 삭제
+docker rm $(docker ps -a -q)   
+
+추가로 모든 docker 이미지 삭제 명령도 다음과 같음
+docker rmi $(docker images -q)
+
+docker rmi -f $(docker images -q)
+
+#정지된 컨테이너 삭제
+docker container prune
+
+#실행중인 컨테이너 image외의 이미지 삭제
+docker image prune
+
+#정지된 컨테이너, 실행중인 컨테이너,이미지 외의 이미지 볼륨 네트워크 삭제
+docker system prune
+
