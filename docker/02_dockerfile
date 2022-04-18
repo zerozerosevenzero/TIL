@@ -23,3 +23,4 @@ docker build -t myimage2 -f Dockerfile2 .
 docker build -t myimage3 --pull=true .
 
 pull: 이미지를 build 할 때 Dockerfile 에 정의된 이미지를 모두 업데이트함 
+
