@@ -1,0 +1,15 @@
+ Query
+  - Primary Key를 사용하여 데이터 검색
+  - Query 사용 시 모든 데이터 반환
+  - ProjectionExpression 파라미터
+
+ Scan
+ - 모든 데이터를 불러옴(primary key 사용 x)
+ - ProjectionExpression 파라미터
+
+ Query vs Scan
+ - Query가 Scan보다 훨씬 효율적임
+ - 따라서 Query사용 추천
+ 
+ 
+ 
