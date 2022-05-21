@@ -1,0 +1,9 @@
+sudo -s
+
+yum install httpd -y //아파치서버 설치
+service httpd start //아파치 웹서버 실행
+
+cd /var/www/html
+vi index.html
+
+chkconfig httpd on //ec2인스턴스가 종료되더라도 자동으로 실행하게함
