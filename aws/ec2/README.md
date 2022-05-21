@@ -1,4 +1,4 @@
-### EC2 생명 주기
+### EC2 생명 주기 05/22
 AMI -> pending -> rebooting-> running -> stopping -> stopped -> terminated
 
 중지
@@ -12,3 +12,14 @@ AMI -> pending -> rebooting-> running -> stopping -> stopped -> terminated
 최대 절전모드
  - 메모리 내용을 보존해서 재시작시 중단지점에서 시작할 수 있는 정지모드
 
+### 보안그룹 05/22
+보안 그룹은 인스턴스에 대한 인바운드 및 아웃바운드 트랙픽을 제어하는 가상 방화벽 역할
+
+Port 허용
+ - 기본적으로 모튼 포트는 비활성황
+ - 선택적으로 트래픽이 지나갈 수 있는 Port와 source를 설정 가능
+ - Deny는 불가능
+
+인스턴스 단위
+ - 하나의 인스턴스에 하나 이상의 보안 그룹 설정 가능
+ - 인스턴스에 여러 보안 그룹이 적용될 경우 모든 보안 그룹의 규칙을 적용 받음
