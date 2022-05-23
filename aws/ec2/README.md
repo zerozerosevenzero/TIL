@@ -23,3 +23,17 @@ Port 허용
 인스턴스 단위
  - 하나의 인스턴스에 하나 이상의 보안 그룹 설정 가능
  - 인스턴스에 여러 보안 그룹이 적용될 경우 모든 보안 그룹의 규칙을 적용 받음
+
+
+### EC2권한부여 05/23
+sudo -s
+
+aws ec2 describe-instances --region ap-northeast-2 //aws ec2인스턴스 목록을 보여줌 권한없이 불가
+1. 설정정보를 통해 들어가기
+aws configure // aws 설정정보
+aws_access_key_id: .....
+aws_secret_access_key: .....
+ 
+2. IAM에 사용자 권한 부여 EC2 all access 부여하여 접근
+
+기타: vi ~/.aws/credentials // aws key와 secret-key확인
