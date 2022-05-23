@@ -29,11 +29,31 @@ Port 허용
 sudo -s
 
 aws ec2 describe-instances --region ap-northeast-2 //aws ec2인스턴스 목록을 보여줌 권한없이 불가
-1. 설정정보를 통해 들어가기
+1. 설정정보를 통해 들어가기(사용자에게 ec2 full access 권한주고 key받은다음 접근)
 aws configure // aws 설정정보
 aws_access_key_id: .....
 aws_secret_access_key: .....
  
-2. IAM에 사용자 권한 부여 EC2 all access 부여하여 접근
+2. IAM에 ec2 full access역할을 부여한후 접근
 
-기타: vi ~/.aws/credentials // aws key와 secret-key확인
+기타: vi ~/.aws/credentials // 1번으로 ec2접근 했을 경우 aws key와 secret-key확인 
+
+### ENI(Elastic Network Interface) 05/23
+- EC2의 가상의 랜카드
+- IP주소와 Mac 주소를 보유
+- 하나의 인스턴스에 여러개의 ENI를 연동가능
+- 인스턴스 유형 및 사이즈에 따라 최대 보유 가능한 IP주소가 변동
+- 내부적으로는 보안 그룹은 ENI에 부착
+
+탄력적 IP
+- EC2의 퍼블릭 IP를 고정해주는 서비스(즉, 인스턴스를 중지-> 재시작해도 고정적인 IP를 확보 가능
+- 사용할때는 무료, 단 확보하고 사용하지 않을 경우 비용 발생
+- EC2이외의 다른 서비스(NLB)에도 사용
+- 내가 보유한 IP주소를 AWS에서 사용가능
+- 리전 단위
+
+
+
+
+
+
