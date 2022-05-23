@@ -61,8 +61,25 @@ aws_secret_access_key: .....
  - 가용 영역에 인스턴스가 골고루 분산될 수 있도록 인스턴스를 분배
  - 구성(시작 구성, 모니터링, 설정)
 
+### Elastic Load Balancer(ELB)
+ 둘 이상의 가용 영역에서 EC2 인스턴스, 컨테이너, IP주소등 여러 대상에 걸쳐 수신되는 트래픽을 자동으로 분산
+ 등록한 대상의 상태를 모니터링하면서 상태가 양호한 대상으로만 트래픽을 라우팅
+ 4가지 종류
+ - Application Load Balancer //트래픽을 모니터링하여 라우팅 가능, OSI Model 7
+ - Network Load Balancer     //TCP기반 빠른 트래픽 분산, Elastic IP 할당 가능(IP고정 가능)
+ - Classic Load Balancer     //잘안씀
+ - Gateway Load Balancer     //먼저 트래필체크, OSI Model 3, 가상 어플라이언스 배포/확장 관리를 위한 서비스
+ 
+ Health Check: 직접 트래픽을 발생시켜 인스턴스가 살아있는지 체크
+ autoscaling과 연동 가능
+ 지속적으로 IP주소가 바뀌며 IP고정 불가능: 항상 도메인 기반으로 사용
 
 
+대상그룹(Target Group)
+ - ELB가 라우팅 할 대상의 집합
+ - 구성(instance, IP, Lambda, ALB)
+ - 프로토콜(HTTP, HTTPS, gRPC, TCP)
+ - 기타설정(트래픽 분산 알고리즘, 고정세션)
 
 
 
