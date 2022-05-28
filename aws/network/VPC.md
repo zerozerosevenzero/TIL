@@ -12,3 +12,12 @@ VPC의 구성요소
  - NAT instance/Gateway
  - Bastion Host
  - VPC Endpoint
+
+VPC Peering
+ - 두개의 다른 VPC를 연결하여 VPC안의 리소스끼리 통신이 가능하도록 설정하는것
+ - 다른 리전, 다른 계정의 VPC끼리 연결 가능
+ - CIDR Range 중첩 불가능
+ - Transitive Peering 불가능
+   - 통신을 위해서는 직접 연결되어야함
+   - 혹은 Transit Gateway 이용
+
