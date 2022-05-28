@@ -1,1 +1,20 @@
 보안그룹과 NACL(Network Access Control List)
+보안그룹(SG)
+ - Network Access Control List(NACL)와 함께 방화벽의 역할을 하는 서비스
+ - Port 허용
+   - 기본적으로 모든 포트는 비활성화
+   - 선택적으로 트래픽이 지나갈 수 있는 포트와 소스를 설정 가능
+   - Deny는 불가능 -> NACL로 가능함
+ - 인스턴스 단위
+   - 하나의 인스턴스에 하나 이상의 SG설정 가능
+   - NACL의 경우 서브넷 단위
+ - 기본 5개, 최대 16개까지 설정가능 그 이상은 요청해야함
+ 
+ SG: stateful
+ NACL: stateless
+ 
+ NACL(Network Access Control List)
+ - 보안그룹처럼 방화벽 역할을 담당
+ - 서브넷 단위
+ - 포트 및 아이피를 직접 Deny가능
+ - 외부 공격을 받는 상황 등 특정 아이피를 블록하고 싶을 때 사용
