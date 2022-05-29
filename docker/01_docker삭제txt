@@ -31,3 +31,4 @@ docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)   
 docker rmi -f $(docker images -q)
 
+ docker run --rm -d --name mydb -v /home/ubuntu/mysqldata:/var/lib/mysql mysqldb

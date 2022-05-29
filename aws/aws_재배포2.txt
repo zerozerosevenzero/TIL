@@ -1,5 +1,0 @@
-aws_재배포2
-ps -ef //현재 프로세스 상태
-kill -9 962
-netstat -nlpt 포트사용여부
-rm -rf aws-v1
