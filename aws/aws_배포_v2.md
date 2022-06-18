@@ -77,6 +77,45 @@ java -jar -Dspring.profiles.active=prod aws-v2-0.0.1.jar
 1>/dev/null 표준출력로그를 쓰레기통에
 2>/dev/null 시스템에러로그를 쓰레기통에
 
+=======================================================================================================
+nohup java -jar -Dspring.profiles.active=prod ${JAR_PATH} 1>log.out 2>err.out & 
+echo "8. start server complete"
+
+netstat -nlpt   -> 포트확인
+sudo apt install net-tools  -> netstat 설치
+
+tail -f log.out  -> 실시간로그를 보여줌
+
+=======================================================================================================
+crontab: 서버를 재시작하기위함 
+
+
+cron 에 잘등록되었는지 확인 crontab -e
+kill -9 21394
+
+gradle을 빌드하려면 test파일이 있어야함
+테스트없이 빌드하고 싶을 때 
+./gradlew build -x test
+ 
+=======================================================================================================
+파일 압축하기
+-c tar로 압축할때
+-v 압축을 하거나 풀 때 출력을 화면에 보여줄지 말지
+-f 파일 이름 지정하기
+-x tar로 압축풀때
+
+파일 압축 시
+tar -cvf 원하는압축명 파일명 파일명  -> ex) tar -cvf deploy.tar check-and-restart.sh deploy.sh var.sh
+tar -xvf 압축파일명
+
+새 ec2생성하고
+
+ec2 생성시 ssh 접속버그 -> ssh-keygen -R url 
+
+새 ec2생성하고
+deploy.tar 전송
+그리고 tar -xvf deploy.tar
+./deploy.tar 실행
 
 
 
