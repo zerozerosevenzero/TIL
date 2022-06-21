@@ -13,6 +13,7 @@ cd /etc/nginx
 
 # 6. nginx 주요설정
 cd conf.d > elasticbeanstalk > 00_application.conf
+```
 location / {
     proxy_pass          http://127.0.0.1:5000;
     proxy_http_version  1.1;
@@ -23,5 +24,5 @@ location / {
     proxy_set_header    X-Real-IP           $remote_addr;
     proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
 }
-
+```
 / 로 접근 시 http://127.0.0.1:5000로 가라
