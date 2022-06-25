@@ -13,3 +13,11 @@ Private ip: 172.31.1.1 vpc- id : vpc-11f9687a
 보안그룹이름 : awseb-e-62micrzf33-stack-AWSEBSecurityGroup-1SHPJQ673J2C3
 보안그룹id: sg-0bd31cad02df89c6c
 rds엔드포인트 주소:  aws-v4-rds.cjdxcqksmsh9.ap-northeast-2.rds.amazonaws.com
+
+
+east-2.compute.amazonaws.com	3.36.158.25
+Private ip: 172.31.1.1
+vpc- id : vpc-11f9687a
+보안그룹이름 : awseb-e-62micrzf33-stack-AWSEBSecurityGroup-1SHPJQ673J2C3
+보안그룹id: sg-0bd31cad02df89c6c
+rds엔드포인트 주소(호스트네임):  aws-v4-rds.cjdxcqksmsh9.ap-northeast-2.rds.amazonaws.com
