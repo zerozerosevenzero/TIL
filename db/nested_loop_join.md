@@ -22,3 +22,68 @@ select /*+ gather_plan_statistics  leading(e d) use_nl(d) */  e.ename,  e.sal,  
    
 * * *
 
+1. 인덱스 없었을때의 2개의 테이블 조인
+
+select /*+ gather_plan_statistics leading(e d) use_nl(d) */  e.ename,  e.sal,  d.loc  
+from  emp  e,  dept  d  
+where  e.deptno = d.deptno;  
+결과: buffer 35개
+* * *
+2. 연결고리가 되는 컬럼에 인덱스 생성후 결과 
+
+create index emp_deptno on emp(deptno);  
+
+select /*+ gather_plan_statistics leading(d e) use_nl(e) */  e.ename,  e.sal,  d.loc  
+from  emp  e,  dept  d  
+where  e.deptno = d.deptno;  
+결과: buffer 10개 
+* * *
+3. 검색 조건이 있었을때의 두개의 테이블 조인 
+
+select /*+ gather_plan_statistics leading(e d) use_nl(d) */  e.ename,  e.sal,  d.loc  
+from  emp  e,  dept  d   
+where  e.deptno = d.deptno and e.ename='SCOTT';  
+결과: buffer 14개
+* * *
+4. 연결고리가 되는 컬럼에 인덱스를 생성한 후에 조인
+
+create index dept_deptno on dept(deptno);  
+
+select /*+ gather_plan_statistics leading(e d) use_nl(d) */  e.ename,  e.sal,  d.loc  
+from  emp  e,  dept  d  
+where  e.deptno = d.deptno and e.ename='SCOTT';  
+결과: buffer 9개
+* * *
+5. ename 에 인덱스를 생성했을때  
+create index emp_ename on emp(ename);  
+select /*+ gather_plan_statistics leading(e d) use_nl(d) */  e.ename,  e.sal,  d.loc  
+from  emp  e,  dept  d   
+where  e.deptno = d.deptno and e.ename='SCOTT';  
+결과: buffer 4개
+* * *
+6. 검색조건이 여러개 있었을때의 조인 (인덱스 없었을때)  
+select /*+ gather_plan_statistics leading(d e) use_nl(e) */ e.ename, e.sal, d.loc  
+from  emp  e,  dept  d  
+where  e.deptno = d.deptno  and e.job='SALESMAN'  
+and d.loc='CHICAGO';  
+결과: buffer 14개  
+* * *
+7. 연결고리가 되는 컬럼에 인덱스가 있었을때   
+create index emp_deptno on emp(deptno);
+
+select /*+ gather_plan_statistics leading(d e) use_nl(e) */ e.ename, e.sal, d.loc  
+from  emp  e,  dept  d  
+where  e.deptno = d.deptno  and e.job='SALESMAN'  
+and d.loc='CHICAGO';  
+
+결과: buffer 9개  
+* * *
+8. 부서위치에도 인덱스를 생성했을때 
+
+create index dept_loc on dept(loc);  
+
+select /*+ gather_plan_statistics leading(d e) use_nl(e) */ e.ename, e.sal, d.loc  
+from  emp  e,  dept  d  
+where  e.deptno = d.deptno  and e.job='SALESMAN'  
+and d.loc='CHICAGO';  
+결과:  buffer 4개 
