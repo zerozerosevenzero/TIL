@@ -76,6 +76,25 @@ vi ~/.ssh/id_rsa
 1. jenkins 대시보드에서 좌측상단 '새로운 item' 클릭
 2. item이름 정의  ex)  ${인스턴스이름} deploy
 3. Freestyle project 클릭
-4. 빌드환경탭 
+4. 빌드환경탭 > 빌드 후 조치 추가 > Set build artifacts over SSH 클릭
+5. 빌드 후 조치 SSH Server Name에 워커인스턴스 등록
+6. 고급(advanced) 탭에 Verbose output in console버튼 체크 (로그 자세하게출력)
+7. exec command 탭에 
 ```
+```
+nohup docker run -p 8080:80 ${로그인계정}/${워커인스턴스이름} > /dev/null 2>&1 &
+```
+nohup, & 는 백그라운드 실행
+> /dev/null 2>&1 표준에러를 표준출력으로 redirection하라
+
+![image](https://user-images.githubusercontent.com/46700734/185801034-2e915573-57c5-40d8-ad7f-257923f37292.png)
+
+## 12. 워커인스턴스에 docker 설정
+```
+sudo yum install docker
+sudo systemctl start docker
+sudo chmod 666 /var/run/docker.sock
+```
+
+
 
