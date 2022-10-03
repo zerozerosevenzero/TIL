@@ -12,7 +12,8 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 ## 2. 도커 이미지 만들기
 터미널창에 다음과 같이 입력
 ```
-docker build -t {도커사용자이름}/{애플리케이션이름} .
+maven: docker build -t {도커사용자이름}/{애플리케이션이름} .
+gradle: docker build --build-arg JAR_FILE=build/libs/\*.jar -t springio/gs-spring-boot-docker .
 (ex) docker build -t sgs1159/new-app .
 ```
 
