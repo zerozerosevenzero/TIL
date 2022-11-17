@@ -11,7 +11,6 @@ scp file.txt remote_username@1.1.1.1:/remote/directory
 ## 파일명을 다르게 저장
 ```
 scp file.txt remote_username@1.1.1.1:/remote/directory/NEW_FILE_NAME.txt
-
 ```
 
 ## 특정포트로 전송
