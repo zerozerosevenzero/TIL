@@ -17,7 +17,7 @@ dbsize   # db size
 flushall # db 날리기
 ```
 
-### String 요약
+### String
 | 명령어 | 기능 | 예제
 |---|---|---|
 |SET | 특정 키의 문자열 값을 저장한다||
@@ -27,8 +27,22 @@ flushall # db 날리기
 |MSET| 여러 키에 대한 값을 한번에 저장한다.|MSET key1 milk key2 coffee|
 |MGET| 여러 키에 대한 값을 한번에 얻어온다.|MGET key1 key2|
 
+### List
+ - Linked-list 형태의 자료구조
+ - Queue와 Stack으로 사용할 수 있음
+ - http://redisgate.kr/redis/command/lists.php (명령어모음)
 
+| 명령어 | 기능 |
+|---|---|
+|LPUSH ||
+|RPUSH ||
+|LLEN ||
+|LRANGE ||
+|LPOP||
+|RPOP||
 
+### SET
 
+![image](https://user-images.githubusercontent.com/46700734/208946355-9f84747f-07a9-491a-b555-eae7284291f6.png)
 
 
