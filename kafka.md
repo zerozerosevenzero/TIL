@@ -1,4 +1,5 @@
 tar -zxf kafka_2.13-2.8.2.tgz
+desktop/kafka_config 폴더 확인
 cd kafka_2.13-2.8.2
 z kafka_2.13-2.8.2
 
