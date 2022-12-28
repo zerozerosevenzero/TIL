@@ -38,3 +38,14 @@ bin/kafka-console-producer.sh --topic topic-example1 --bootstrap-server localhos
 ```
 bin/kafka-console-consumer.sh --topic topic-example1 --from-beginning --bootstrap-server localhost:9092
 ```
+
+## 카프카 group명 임영
+```
+bin/kafka-console-consumer.sh --topic topic1 --group team-a --from-beginning --bootstrap-server localhost:9092
+
+```
+
+## 카프카 current offset 확인
+```
+bin/kafka-consumer-groups.sh --bootstrap-server=localhost:9092 --group team-a --describe
+```
