@@ -49,3 +49,17 @@ bin/kafka-console-consumer.sh --topic topic1 --group team-a --from-beginning --b
 ```
 bin/kafka-consumer-groups.sh --bootstrap-server=localhost:9092 --group team-a --describe
 ```
+
+## 카프카 config 파일에서 server.properties 들 안에 옵션 값 확인하기
+1. server.properties, server2.properties, server3.properties 값 설정 
+![image](https://user-images.githubusercontent.com/46700734/209983550-7cc2df3c-0528-46ff-81f9-d182dd0e298f.png)
+
+```
+grep broker.id server*
+grep listeners server*
+grep log.dirs server* 
+```
+그림과 같이 확인 가능
+<img width="623" alt="image" src="https://user-images.githubusercontent.com/46700734/209983747-abc5e3b3-b85c-43ea-8ac4-dba291d27f8d.png">
+
+
