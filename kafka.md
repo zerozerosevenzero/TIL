@@ -59,7 +59,23 @@ grep broker.id server*
 grep listeners server*
 grep log.dirs server* 
 ```
-그림과 같이 확인 가능
+그림과 같이 확인 가능.   
+
 <img width="623" alt="image" src="https://user-images.githubusercontent.com/46700734/209983747-abc5e3b3-b85c-43ea-8ac4-dba291d27f8d.png">
 
 
+## 카프카 클러스터 구성하기
+```
+bin/kafka-topics.sh --create --topic topic2 --bootstrap-server localhost:9093 --partitions 3 --replication-factor 2
+```
+
+## 카프카 topic2에 연결
+```
+bin/kafka-console-producer.sh --topic topic2 --bootstrap-server localhost:9092,localhost:9093,localhost:9094
+```
+
+## server2.properties로 시작한 브로커죽이기
+```
+ps -ef | grep server2.properties 
+pid 확인 후 삭제
+```
