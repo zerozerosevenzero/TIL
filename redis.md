@@ -53,3 +53,17 @@ docker run -v $(pwd)/redis.conf:/redis.conf —-name my-redis-with-config redis 
 ```
 
 redis 값 rdb에 dump 파일로 저장
+
+특정 주기마다 변경하고 싶을 때
+(ex) 60초에 10개 이상 변경될 시 스냅샷에 저장 
+```
+code redis.conf
+```
+![image](https://user-images.githubusercontent.com/46700734/212547152-0dcd0316-d6fc-40a4-932b-ff20a14b5670.png)
+
+## 수동으로 스냅샷 저장
+
+redis-cli 들어가서 bgsave
+```
+bgsave
+```
