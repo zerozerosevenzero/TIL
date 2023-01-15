@@ -45,4 +45,10 @@ flushall # db 날리기
 
 ![image](https://user-images.githubusercontent.com/46700734/208946355-9f84747f-07a9-491a-b555-eae7284291f6.png)
 
+redis rdb로 db 백업하기 
+redis.conf는 https://redis.io/docs/management/config/ 여기서 다운받아 경로에 저장 후 -v 옵션으로 실행
+```
+docker run -v $(pwd)/redis.conf:/redis.conf —-name my-redis-with-config redis redis-server /redis.conf
+```
 
+redis 값 rdb에 dump 파일로 저장
