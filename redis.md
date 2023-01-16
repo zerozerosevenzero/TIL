@@ -67,3 +67,51 @@ redis-cli 들어가서 bgsave
 ```
 bgsave
 ```
+
+## AOF(Append Only File)를 사용한 백업
+
+### AOF란..?
+- 모든 쓰기 요청에 대한 로그를 저장
+- 재시작 시 AOF에 기록된 모든 동작을 재수행해서 데이터를 복구
+
+### AOF의 장점
+- 모든 변경사항이 기록되므로 RDB 방식 대비 안정적으로 데이터 백업 가능
+- aof 파일은 append-only방식으로 백업파일의 손상될 위험이 적음
+- 실제 수행된 명령어가 저장되어 있으므로 사람이 보고 이해할 수 있고 수정도 가능
+
+### AOF의 단점
+- RDB 방식보다 파일 사이즈가 커짐
+- RDB 방식 대비 백업 & 복구소도가 느림 (fsync 정책에 따라 달라짐)
+
+AOF 설정
+
+
+AOF 사용 (기본값은 no)
+redis.conf에서 기존 save 옵션은 
+![image](https://user-images.githubusercontent.com/46700734/212711483-beb409e1-8c4a-4b68-854d-a594e82fc2b7.png)
+
+
+```
+appendonly yes
+```
+
+AOF 파일 이름
+```
+appendfilename appendonly.aof
+```
+
+fsync 정책 설정
+```
+appendfsync everysec
+```
+
+fsync 정책(appendfsync 설정값)
+- fsync 호출은 os에게 데이터를 디스크에 쓰도록 함
+- 가능한 옵션과 설명
+- always: 새로운 커맨드가 추가될 때마다 수행, 가장 안전하지만 느림
+- everysec: 1초마다 수행, 성능은 RDB 수준에 근접
+- no: OS에 맡김. 가장 빠르지만 덜 안전한 방법(커널마다 수행시간이 다를 수가 있음)
+
+
+
+
