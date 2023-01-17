@@ -112,6 +112,25 @@ fsync 정책(appendfsync 설정값)
 - everysec: 1초마다 수행, 성능은 RDB 수준에 근접
 - no: OS에 맡김. 가장 빠르지만 덜 안전한 방법(커널마다 수행시간이 다를 수가 있음)
 
+## redis의 복제(replication)
+
+Replica 노드에서만 설정을 적용해 master-replica 복제 구성 가능
+
+replica로 동작하도록 설정
+```
+replicaof 127.0.0.1 6379
+```
+
+replica 속성 변경
+```
+replica-read-only
+```
+
+마스터 노드에는 RDB나 AOF를 이용한 백업 기능 활성화가 필수!
+
+
+
+
 
 
 
