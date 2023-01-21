@@ -28,3 +28,9 @@ logback-spring-local.xml
 
 - <file> 어떤 파일에 해당 로그를 쌓을 건지를 정의 (logs폴더의 request1.log)
 - <rollingPolicy> 파일이 어떤식으로 저장할지 정의
+- fileNamePattern 파일 이름을 어떤식으로 저장할지
+- maxFileSize 로그파일 최대 크기
+- maxHistory 로그파일 최대 보관주기 단위 (일)
+- outputPatternAsHeader: 로그가 어떤 패턴으로 쌓이는지 첫줄에 보여줌
+  ![image](https://user-images.githubusercontent.com/46700734/213872550-e9dcdcad-12d4-46c5-b2f8-d04a90faeadf.png)
+
