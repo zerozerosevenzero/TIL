@@ -36,6 +36,8 @@ logback-spring-local.xml
 
 ---
 ## LogBack 변수만들기
+ 
+### logback-variable.properties 파일 만들기
 ![image](https://user-images.githubusercontent.com/46700734/213872717-d41aeeab-9407-4df7-8c52-18d21104b534.png)
 
   
