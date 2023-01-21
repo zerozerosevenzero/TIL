@@ -17,6 +17,14 @@ logback 프로필 설정을 통해 각 프로필별 설정 구성 가능
 logback-spring-local.xml
 <img width="858" alt="image" src="https://user-images.githubusercontent.com/46700734/213848788-569f2766-90a5-492e-a8ca-ae90e274645c.png">
 - appender를 통해 CONSOLE2 appender 추가
+- 해당 appender는 ConsoleAppender
 - 기존 CONSOLE appender는 console-appender.xml에 정의
 - appender의 filter > level에 debug 레벨 정의 가능
 - appender의 pattern을 통해 로그 메시지 정의 가능
+
+--- 
+## RollingFileAppender 사용하기
+<img width="744" alt="image" src="https://user-images.githubusercontent.com/46700734/213849355-f19eafe3-b3d6-4753-979b-65b3f3c79635.png">
+
+- <file> 어떤 파일에 해당 로그를 쌓을 건지를 정의 (logs폴더의 request1.log)
+- <rollingPolicy> 파일이 어떤식으로 저장할지 정의
