@@ -13,3 +13,10 @@
 
 해당 설정을 통해 스프링부트의 기본 로그 설정을 참조할 수 있음
 logback 프로필 설정을 통해 각 프로필별 설정 구성 가능
+
+logback-spring-local.xml
+<img width="858" alt="image" src="https://user-images.githubusercontent.com/46700734/213848788-569f2766-90a5-492e-a8ca-ae90e274645c.png">
+- appender를 통해 CONSOLE2 appender 추가
+- 기존 CONSOLE appender는 console-appender.xml에 정의
+- appender의 filter > level에 debug 레벨 정의 가능
+- appender의 pattern을 통해 로그 메시지 정의 가능
