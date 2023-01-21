@@ -39,6 +39,9 @@ logback-spring-local.xml
  
 ### logback-variable.properties 파일 만들기
 ![image](https://user-images.githubusercontent.com/46700734/213872717-d41aeeab-9407-4df7-8c52-18d21104b534.png)
+![image](https://user-images.githubusercontent.com/46700734/213873093-3983a4e1-edfd-473c-b9f0-060f3ecaeb65.png)
+사용하는 곳에 property로 import 시켜주기
+
 
   
   
