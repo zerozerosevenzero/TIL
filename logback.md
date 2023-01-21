@@ -42,6 +42,14 @@ logback-spring-local.xml
 ![image](https://user-images.githubusercontent.com/46700734/213873093-3983a4e1-edfd-473c-b9f0-060f3ecaeb65.png)
 사용하는 곳에 property로 import 시켜주기
 
+---
+## MDC
+
+- 멀티쓰레드 환경에서 로그를 남길 때 사용하는 개념
+- 쓰레드별 값을 동적으로 가져오기 위해 사용 
+  ![image](https://user-images.githubusercontent.com/46700734/213874204-5986dae4-7a71-4bfb-aaa1-865df0740898.png)
+  ![image](https://user-images.githubusercontent.com/46700734/213874223-b7c420fb-aa0a-413f-8a9e-94c1a4d33409.png)ㅅ
+
 
   
   
