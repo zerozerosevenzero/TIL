@@ -55,4 +55,11 @@ logback-spring-local.xml
 ![image](https://user-images.githubusercontent.com/46700734/213901121-f47defbc-2f93-41aa-aa8d-fc19be89f1ce.png)
 - filter 추가 이후 level에 error 입력
   
-  
+---
+## 특정컨트롤러에서 로거만들기 
+![image](https://user-images.githubusercontent.com/46700734/213901508-de1d15e4-9300-4d37-be52-bee36d5523af.png)
+![image](https://user-images.githubusercontent.com/46700734/213901533-f0347aa7-41ba-4981-9eca-7744676b6a66.png)
+![image](https://user-images.githubusercontent.com/46700734/213905674-421eeaab-2284-4159-9258-5ece10cd4b67.png)
+
+
+---
