@@ -50,6 +50,9 @@ logback-spring-local.xml
   ![image](https://user-images.githubusercontent.com/46700734/213874204-5986dae4-7a71-4bfb-aaa1-865df0740898.png)
   ![image](https://user-images.githubusercontent.com/46700734/213874223-b7c420fb-aa0a-413f-8a9e-94c1a4d33409.png)ㅅ
 
-
+---
+## ERROR 로그만을 위한 appender
+![image](https://user-images.githubusercontent.com/46700734/213901121-f47defbc-2f93-41aa-aa8d-fc19be89f1ce.png)
+- filter 추가 이후 level에 error 입력
   
   
