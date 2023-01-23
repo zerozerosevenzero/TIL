@@ -19,8 +19,8 @@
   - 클러스터가 정상 상태가 아닐 때도 read 요청은 받도록 할지 여부
   - 어플리키이션에서 read 동작의 consistency가 중요치 않은 경우에 yes로 설정할 수 있음
   
-클러스터 실습
- 1. redis.conf 파일 각 폴더에 저장 
+# 클러스터 실습
+ ## 1. redis.conf 파일 각 폴더에 저장 
   (7000/redis-7000.conf, 7001/redis-7001.conf, 7002/redis-7002.conf, 7003/redis-7003.conf, 7004/redis-7004.conf, 7005/redis-7005.conf)
   ```
   cp redis.conf 7000/redis-7000.conf)
@@ -29,7 +29,7 @@
   ```
   ![image](https://user-images.githubusercontent.com/46700734/214085680-d80f43a5-f4ef-423e-a95e-723c53aadb41.png)
 
- 2. 각 클러스터 레플리카 설정하기
+ ## 2. 각 클러스터 레플리카 설정하기
   ```
   redis-cli --cluster create localhost:7000 localhost:7001 localhost:7002 localhost:7003 localhost:7004 localhost:7005 --cluster-replicas 1
   ```
@@ -44,7 +44,7 @@
   ![image](https://user-images.githubusercontent.com/46700734/214087674-5f1b12cc-01e9-4bec-a089-fee073226a76.png)
 
   
- 3. 각 노드 상태 확인하기
+ ## 3. 각 노드 상태 확인하기
   redis-cli -p 7000
   cluster nodes 
   ![image](https://user-images.githubusercontent.com/46700734/214088680-f562a6d5-4e5d-4dfc-b634-3308f86b1b60.png)
@@ -62,7 +62,7 @@
   get aaa -> 성공
   ```
   
- 4. 7001번 마스터 노드 종료시키기(failover상태 만들기)
+ ## 4. 7001번(마스터 노드) 종료시키기(failover상태 만들기)
   7000번에서 다시 노드 상태 확인
   ```
   cluster nodes
@@ -74,15 +74,16 @@
   - 7003에서 set 명령어를 통해 수행 시 정상 동작 
   ![image](https://user-images.githubusercontent.com/46700734/214091560-76277e9b-7190-494f-afb3-0a915274047f.png)
  
- 5. 7001 노드 다시 실행
+ ## 5. 7001 (이전마스터노드) 다시 실행
   ```
   redis-server ./redis-7001.conf
   ```
-  ![image](https://user-images.githubusercontent.com/46700734/214092487-62cdf8e4-ac0a-4acf-9c5e-e8c1c0293929.png)
   - 7003 마스터 유지
   - 7001 slave로 소생
+  ![image](https://user-images.githubusercontent.com/46700734/214092487-62cdf8e4-ac0a-4acf-9c5e-e8c1c0293929.png)
+
   
-6. 7006 신규노드 기존 클러스터에 추가하기
+## 6. 7006 신규노드 기존 클러스터에 추가하기
   ```
    cp redis.conf 7006/redis-7006.conf)
    port 6379 -> port <port>
@@ -97,20 +98,21 @@
   마스터로 생성
   ![image](https://user-images.githubusercontent.com/46700734/214094412-91d25fdd-1f8b-48ce-b7d4-d0fe8396018d.png)
 
-7. 7006의 replica 7007 추가하기
+## 7. 7006의 replica 7007 추가하기
+  - 7001 생성
   ```
    cp redis.conf 7007/redis-7007.conf)
    port 6379 -> port <port>
    cluster endabled yes
   ```
   
-  기존 클러스터에 삽입하는데 7006의 slave로 삽입
+  - 기존 클러스터에 삽입하는데 7006의 slave로 삽입
   ```
    redis-cli --cluster add-node localhost:7007 localhost:7006 --cluster-slave
    redis-cli --cluster add-node localhost:7007 localhost:7006 --cluster-slave ${여기에 마스터로 놓일 곳 정하는 것도 가능}
   ```
 
-  7007 slave로 삽입된 것 확인
+  - 7007 slave로 삽입된 것 확인
   ![image](https://user-images.githubusercontent.com/46700734/214095808-90a767c3-dffa-4da6-bfc1-4c593fbee4cd.png)
 
   
