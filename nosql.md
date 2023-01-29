@@ -48,5 +48,42 @@
  - oplog:
     - Replica Set의 모든 멤버가 동일한 데이터셋을 이룰 수 있도록함
     - local database의 Oplog Collection을 통해 복제를 수행한다.    
+
+---
+## Shard Cluster
+ - 모든 Shard는 Replica Set으로 구성되어 있다.
+ - Sharding: 큰 데이터를 여러 데이터로 분할하는 과정
+ - Shard: 분할된 데이터셋, Collection 단위로 샤딩이됨
+ - Shard key: 분산이 되는 기준. 
+ - **Replica(복제)는 HA를 위한 솔루션이고 Sharding은 scale out을 위한 분산처리를 위한 솔루션**
+
+## Shard cluster의 장단점
+    - 장점:
+        - 용량의 한계를 극복할 수 있다.
+        - 데이터 규모와 부하가 크더라도 처리량이 좋다.
+        - 고가용성을 보장한다.
+        - 하드웨어에 대한 제약을 해결할 수 있다.
+    - 단점:
+        - 관리가 비교적 복잡하다.
+        - Replica Set과 비교해서 쿼리가 느리다.
+
+## Sharding vs Partitioning
+  - Sharding: 하나의 큰 데이터를 여러 서브셋으로 나누어 여러 인스턴스에 저장하는 기술 
+  - Partitioning: 하나의 큰 데이터를 여러 서브셋으로 나누어 하나의 인스턴스의 여러 테이블로 나누어 저장하는 기술
   
+## Replica Set vs Sharded Cluster
+  - Replica Set은 각각 멤버가 같은 데이터 셋을 갖는다.
+  - Sharded Cluster 각각 Shard가 다른 데이터 서브셋을 갖는다.
+  
+## Sharding 전략
+
+   1. Ranged Sharding: 값의 범위에 따라 샤딩, 값이 몰리는 경우가 발생할 수 있음
+   2. Hashed Sharding: 해쉬 함수를 이용한 샤딩
+   3. Zone Sharding: 특정샤드로 배치시킬 수 있는 방법, Ranged, Hashed 샤딩과 같이 사용함
+
+  
+
+  
+ 
+
 
