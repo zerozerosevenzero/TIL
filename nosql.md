@@ -54,7 +54,8 @@
  - 모든 Shard는 Replica Set으로 구성되어 있다.
  - Sharding: 큰 데이터를 여러 데이터로 분할하는 과정
  - Shard: 분할된 데이터셋, Collection 단위로 샤딩이됨
- - Shard key: 분산이 되는 기준. 
+ - Shard key: 분산이 되는 기준
+ - Sharding은 Shard Key를 선정해야하고 해당필드에는 Index가 만들어져 있어야한다.
  - **Replica(복제)는 HA를 위한 솔루션이고 Sharding은 scale out을 위한 분산처리를 위한 솔루션**
 
 ## Shard cluster의 장단점
@@ -81,7 +82,23 @@
    2. Hashed Sharding: 해쉬 함수를 이용한 샤딩
    3. Zone Sharding: 특정샤드로 배치시킬 수 있는 방법, Ranged, Hashed 샤딩과 같이 사용함
 
-  
+## Replica Set vs Sharded Cluster
+ Replica Set
+    • 운영이쉽다.
+    • 장애발생시문제해결및복구가쉽다.
+    • 서버비용이적게든다.
+    • 성능이좋다.
+    • 개발시설계가용이하다.
+    • Read에 대한 분산이 가능하지만, Write에 대한 분산은 불가능하다.
+
+ Sharded Cluster
+    • Scale-Out이가능하다.
+    • Write에대한분산이가능하다.
+    • Replica Set의 모든 장점이 상대적으로 단점이된다.
+
+
+
+
 
   
  
