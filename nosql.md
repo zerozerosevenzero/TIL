@@ -92,9 +92,9 @@
     - Read에 대한 분산이 가능하지만, Write에 대한 분산은 불가능하다.  
 
  Sharded Cluster
-    - Scale-Out이 가능하다.
-    - Write에대한 분산이 가능하다.
-    - Replica Set의 모든 장점이 상대적으로 단점이된다.
+    - Scale-Out이 가능하다. 
+    - Write에대한 분산이 가능하다. 
+    - Replica Set의 모든 장점이 상대적으로 단점이된다. 
 
 
 
