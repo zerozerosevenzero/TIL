@@ -28,3 +28,25 @@
 - 생성 시, 상위 구조인 Database나 Collection이 없다면 먼저 생성하고 Document를 생성한다.
 - document의 최대 크기는 16mb 이다.
 
+## Replica Set
+ Replica Set은 HA솔루션이다.
+ 데이터를 들고 있는 멤버의 상태는 Primary와 Secondary가 있다.
+ Secondary는 선출을 통해 과반수의 투표를 얻어서 Primary가 될 수 있다.
+ - Primary:
+    - read/write 요청 모두처리할 수 있다.
+    - Write을 처리하는 유일한 멤버이다.
+    - Replica Set 하나만 존재할 수 있다.
+ 
+ - Secondary:
+    - Read에 대한 요청만 처리할 수 있다.
+    - 복제를 통해 Primary와 동일한 데이터 셋을 유지한다.
+    - Replica Set에 여러개가 존재할 수 있다.
+ 
+ - Arbiter:
+    - data를 들고 있지않고 Primary선출에만 관여하는 멤버
+ 
+ - oplog:
+    - Replica Set의 모든 멤버가 동일한 데이터셋을 이룰 수 있도록함
+    - local database의 Oplog Collection을 통해 복제를 수행한다.    
+  
+
