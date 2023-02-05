@@ -120,6 +120,27 @@ mongosh "mongodb://localhost:27017,localhost:27018,localhost:27019/myDatabase"
 mongosh "mongodb://localhost:27017,localhost:27018,localhost:27019/myDatabase?replicaSet=rs1&maxPoolSize=1000"
 ```
 
+---
+
+# SQL VS MQL
+ 
+ select * from table;
+ db.collection.find({});
+ 
+ ## sql-to-mongodb-mapping-chart
+ https://www.mongodb.com/docs/manual/reference/sql-comparison/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
