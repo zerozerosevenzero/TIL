@@ -96,8 +96,29 @@
    - Write에대한 분산이 가능하다. 
    - Replica Set의 모든 장점이 상대적으로 단점이된다. 
 
+---
 
+# Standard Connection String format 사용하기
 
+## local mongodb 접속
+```
+mongosh "mongodb://localhost:27017"
+```
+
+## Replica Set인 경우
+```
+mongosh "mongodb://localhost:27017,localhost:27018,localhost:27019"
+```
+
+## db이름이 myDatabase인 경우
+```
+mongosh "mongodb://localhost:27017,localhost:27018,localhost:27019/myDatabase"
+```
+
+## replicaSet 및 maxPoolSize 정의 
+```
+mongosh "mongodb://localhost:27017,localhost:27018,localhost:27019/myDatabase?replicaSet=rs1&maxPoolSize=1000"
+```
 
 
 
