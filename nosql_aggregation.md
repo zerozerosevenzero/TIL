@@ -1,6 +1,6 @@
 # Aggregation 이란?
 
-- Collection의 데이터를 ㅂ녀환하거나 분석하기 위해 사용하는 집계 프레임워크
+- Collection의 데이터를 변환하거나 분석하기 위해 사용하는 집계 프레임워크
 - Aggregation은 Find 함수로 처리할 수 없는, SQL의 Group By와 Join 구문 같은 복잡한 데이터 분석 기능들을 제공한다.
 - Aggregation Framework는 Pipeline 형태를 갖춘다.
 - MongoDb 2.2 부터 제공되었고 이전에는 Map Reduce를 사용했다.
