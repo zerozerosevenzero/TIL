@@ -6,7 +6,8 @@
 - 타입을 명시적으로 작성하지 않아도 타입이 추론된다.
 --- 
 ## 코틀린에서 null을 다루는 방법
-
+- null이 아닌 경우에만 호출되는 Safe Call(?.) 이 있다
+- null인 경우에만 호출되는 Elvis 연산자 (?:) 가 있다
 1. null일 경우 Exception을 발생한다.
 ```
 fun startsWithA1(str: String?): Boolean {
@@ -34,4 +35,5 @@ fun startsWithA4(str: String?): Boolean {
 }
 ```
 --- 
+## 코틀린에서 Type을 다루는 방법
 
