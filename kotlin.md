@@ -41,3 +41,35 @@ fun startsWithA4(str: String?): Boolean {
 - in / !in -> 컬렉션이나 범위에 포함되어 있다, 포함되어 있지 않다.
 - a..b -> a부터 b까재 범위 객체를 생성한다.
 
+## 코틀린 반복문을 다루는 방법
+1. for each 문
+ ```
+ val nums = listOf(1L, 2L, 3L)
+ for (num in nums) {
+    println(num)
+ }
+ ```
+ 
+ 
+ ```
+ for (i in 1..3) {
+    ...
+ }
+ ```
+ 
+ 내려가는 경우
+ ```
+ for (i in 3 downTo 1) {
+    ...
+ }
+ ```
+ 
+ 2칸씩 올라가는 경우
+```
+ for (i in 1..5 step 2) {
+    ...
+ }
+ ```
+ 
+ 
+
