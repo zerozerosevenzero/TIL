@@ -128,7 +128,18 @@ replica-read-only
 
 마스터 노드에는 RDB나 AOF를 이용한 백업 기능 활성화가 필수!
 
+--- 
 
+Redis Data Type
+Sorted Sets(ZSET)
+
+ZADD: 입력
+ZCARD: Count
+ZRANGE: 정렬순서로 조회
+ZRANGEBYSCOE: score로 함께 조회
+ZREM: 삭제
+ZSCORE: 특정 member의 score를 조회
+ZRANK: 특정 member의 rank를 조회
 
 
 
