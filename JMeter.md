@@ -40,6 +40,9 @@ open /opt/homebrew/bin/Jmeter
 2-1. HTTP request에 대한 Sampler 만들기
 <img width="1024" alt="image" src="https://user-images.githubusercontent.com/46700734/227244969-9b7ce30c-9ca6-4bfc-a2fc-e1562e2115fd.png">
 
+---
+# Listner
+<img width="893" alt="image" src="https://user-images.githubusercontent.com/46700734/227250877-cb3841cd-aeec-478d-a792-4e4393835abe.png">
 
 
 
