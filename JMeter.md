@@ -37,6 +37,8 @@ open /opt/homebrew/bin/Jmeter
 # Sampler 
 유저들이 어떤행동을 하지 행동을 정의
 
+2-1. HTTP request에 대한 Sampler 만들기
+<img width="1024" alt="image" src="https://user-images.githubusercontent.com/46700734/227244969-9b7ce30c-9ca6-4bfc-a2fc-e1562e2115fd.png">
 
 
 
